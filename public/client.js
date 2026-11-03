@@ -3,47 +3,44 @@ const btn = document.getElementById("submit-btn");
 btn.addEventListener("click", submitDataToServer);
 
 // Submit clicked so post the data to the server
-function submitDataToServer() {
-  console.log("SUBMIT clicked!!!"); // display a message
-  // create an object to post to the server
-  // IMPORTANT: ONE NAME - VALUE PAIR FOR EACH FIELD
+function submitDataToServer(event) { // 1. Added 'event' parameter here so preventDefault() works
+  console.log("SUBMIT clicked!!!"); 
+  // Create an object to post to the server
   let dataObj = {
     Gname: document.getElementById("Gender").value,
     Wname: document.getElementById("Weight").value,
     Hname: document.getElementById("Height").value,
-    
   };
-  // JUST USE THESE LINES AS THEY ARE - NO NEED TO CHANGE
-  event.preventDefault(); // prevents 2 calls to this function!!
+  event.preventDefault(); // Prevents page reload
   const requestMsg = new XMLHttpRequest();
-  requestMsg.open("post", "/putData", true); // open a HTTP post request
+  requestMsg.open("post", "/putData", true); 
   requestMsg.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+  // Optional: Refresh the user list automatically after sending data
+  requestMsg.onload = function() {
+    getDataFromServer();
+  };
   requestMsg.send(JSON.stringify(dataObj));
 }
-
 // Make sure to call this function to get latest data
 getDataFromServer();
 // Send a request to the server to query the db and send the data back
 function getDataFromServer() {
-  console.log("getData()"); // display a debug message
-  // request the data from the database
+  console.log("getData()"); 
   const requestMsg = new XMLHttpRequest();
-  requestMsg.addEventListener("load", displayData); // attach a listener
-  requestMsg.open("get", "/getData"); // open a HTTP GET request
+  requestMsg.addEventListener("load", displayData); 
+  requestMsg.open("get", "/getData"); 
   requestMsg.send();
 }
-
 function displayData() {
   console.log("displayData()");
-  // define variables that reference elements on our page
   const rowList = document.getElementById("users");
   rowList.innerHTML = ""; // clear all the list items
-  // parse our response to convert to JSON
   let users = JSON.parse(this.responseText);
-  // iterate through every row and add it to our page
+  // Iterate through every row and match your data keys (Gname, Wname, Hname)
   users.forEach(function (row) {
     const newListItem = document.createElement("li");
-    newListItem.innerHTML = row["first_name"] + " " + row["surname"];
+    // 2. Updated to match your object keys instead of first_name/surname
+    newListItem.innerHTML = `Gender: ${row["Gname"]}, Weight: ${row["Wname"]}, Height: ${row["Hname"]}`;
     rowList.appendChild(newListItem);
   });
 }
