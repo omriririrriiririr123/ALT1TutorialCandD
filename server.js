@@ -54,7 +54,7 @@ db.run(insStr);
 // Process the HTTP GET request for /getData
 app.get('/getData', function(request, response) {
 console.log("In app.get (/getData)");
-db.all('SELECT * from person', function(err, rows) {
+db.all('SELECT * from protein', function(err, rows) {
 response.send(JSON.stringify(rows));
 });
 });
