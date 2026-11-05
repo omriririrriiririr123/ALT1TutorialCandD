@@ -44,7 +44,7 @@ app.post("/putData", function (request, response) {
 console.log("In app.post (/putData)");
 // build up insert statement. For example:
 // insert into person(Gender, Weight, Height) values ('Female', '67', '180')
-let insStr = "insert into person(first_name, surname) values (";
+let insStr = "insert into person(Gender, Weight, Height) values (";
 insStr = insStr + "\'"+request.body.Gname+"\', ";
 insStr = insStr + "\'"+request.body.Wname+"\', ";
 insStr = insStr + "\'"+request.body.Hname+"\', ";
