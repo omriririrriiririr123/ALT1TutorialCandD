@@ -36,7 +36,7 @@ listener.address().port);
 
 // Create the database object
 const sqlite3 = require('sqlite3').verbose();
-let db = new sqlite3.Database('DEMODB'); // database name
+let db = new sqlite3.Database('alt10W.db');
 
 
 // Process the HTTP POST request for /putData
@@ -45,8 +45,9 @@ console.log("In app.post (/putData)");
 // build up insert statement. For example:
 // insert into person(Gender, Weight, Height) values ('Female', '67', '180')
 let insStr = "insert into person(first_name, surname) values (";
-insStr = insStr + "\'"+request.body.fname+"\', ";
-insStr = insStr + "\'"+request.body.sname+"\') ";
+insStr = insStr + "\'"+request.body.Gname+"\', ";
+insStr = insStr + "\'"+request.body.Wname+"\', ";
+insStr = insStr + "\'"+request.body.Hname+"\', ";
 db.run(insStr);
 });
 
