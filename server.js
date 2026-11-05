@@ -43,7 +43,7 @@ let db = new sqlite3.Database('alt10W.db');
 app.post("/putData", function (request, response) {
 console.log("In app.post (/putData)");
 // build up insert statement. For example:
-// insert into person(Gender, Weight, Height) values ('Female', '67', '180')
+// insert into protein(Gender, Weight, Height) values ('Female', '67', '180')
 let insStr = "insert into person(Gender, Weight, Height) values (";
 insStr = insStr + "\'"+request.body.Gname+"\', ";
 insStr = insStr + "\'"+request.body.Wname+"\', ";
