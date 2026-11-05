@@ -11,7 +11,7 @@ app.use(express.static('public'));
 //from chatgpt on 2/10/2025 so that can see what's stored in SQLite d/b on render server.
 // Debug route: show all data in your table
 app.get("/show-data", (req, res) => {
-  db.all("SELECT * FROM person", [], (err, rows) => {
+  db.all("SELECT * FROM protein", [], (err, rows) => {
     if (err) {
       console.error("DB error:", err.message);
       res.status(500).send("Database error");
@@ -43,7 +43,7 @@ let db = new sqlite3.Database('DEMODB'); // database name
 app.post("/putData", function (request, response) {
 console.log("In app.post (/putData)");
 // build up insert statement. For example:
-// insert into person(first_name, surname) values ('Joe', 'Bloggs')
+// insert into person(Gender, Weight, Height) values ('Female', '67', '180')
 let insStr = "insert into person(first_name, surname) values (";
 insStr = insStr + "\'"+request.body.fname+"\', ";
 insStr = insStr + "\'"+request.body.sname+"\') ";
