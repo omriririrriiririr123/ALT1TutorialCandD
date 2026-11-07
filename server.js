@@ -36,7 +36,7 @@ listener.address().port);
 
 // Create the database object
 const sqlite3 = require('sqlite3').verbose();
-let db = new sqlite3.Database('alt10W.db');
+let db = new sqlite3.Database('alt1OW_Omri.db');
 
 
 // Process the HTTP POST request for /putData
@@ -44,11 +44,12 @@ app.post("/putData", function (request, response) {
 console.log("In app.post (/putData)");
 // build up insert statement. For example:
 // insert into protein(Gender, Weight, Height) values ('Female', '67', '180')
-let insStr = "insert into person(Gender, Weight, Height) values (";
+let insStr = "insert into protein(Gender, Weight, Height) values (";
 insStr = insStr + "\'"+request.body.Gname+"\', ";
 insStr = insStr + "\'"+request.body.Wname+"\', ";
-insStr = insStr + "\'"+request.body.Hname+"\', ";
+insStr = insStr + "\'"+request.body.Hname+"\')";
 db.run(insStr);
+response.send("ok");
 });
 
 // Process the HTTP GET request for /getData
