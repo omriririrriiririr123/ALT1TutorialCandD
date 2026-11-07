@@ -40,7 +40,26 @@ function displayData() {
   users.forEach(function (row) {
     const newListItem = document.createElement("li");
     // 2. Updated to match your object keys instead of first_name/surname
-    newListItem.innerHTML = `Gender: ${row["Gname"]}, Weight: ${row["Wname"]}, Height: ${row["Hname"]}`;
+    
+    // set like python var - set protein var and to 0. 
+    let protein = 0;
+
+    if (row["Gender"] == "Male") 
+      {
+      protein = row["Weight"] * 2;
+    } 
+    else 
+      {
+        protein = row["Weight"] * 2 * 0.8;
+      }
+
+      //Remobe the decimal 
+      protein = Math.round(protein);
+
+
+    
+    // Extracts the information from database to list
+    newListItem.innerHTML = `Gender: ${row["Gender"]}, Weight: ${row["Weight"]}, Height: ${row["Height"]} ,  Protein = ${protein}`;
     rowList.appendChild(newListItem);
   });
 }
