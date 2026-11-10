@@ -9,33 +9,29 @@ body {
   font-family: helvetica, arial, sans-serif;
   margin: 2em;
   background-color: #fff8f5;
-  color: #333333;
 }
 
 h1 {
   font-style: italic;
-  color: #d62828;
+  color: #e63946;
 }
 
 .bold {
   font-weight: bold;
-  color: #e85d24;
 }
 
 p {
   max-width: 600px;
-  color: #51433e;
 }
 
 form {
   margin-bottom: 25px;
   padding: 15px;
-  background: linear-gradient(135deg, #ffddd2, #ffb36b);
+  background-color: #ffb385;
   display: inline-block;
   width: 100%;
   max-width: 340px;
-  border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(180, 50, 30, 0.15);
+  border-radius: 5px;
 }
 
 input {
@@ -43,49 +39,35 @@ input {
   margin-bottom: 10px;
   padding: 5px;
   width: 100%;
-  border: 1px solid #e9a18b;
-  border-radius: 5px;
+  border: 1px solid #f4a28c;
+  border-radius: 3px;
   font-size: 16px;
-  background-color: #fffaf8;
-  color: #333333;
-}
-
-input:focus {
-  outline: none;
-  border-color: #e85d24;
-  box-shadow: 0 0 5px rgba(232, 93, 36, 0.4);
 }
 
 button {
   font-size: 16px;
-  border-radius: 5px;
-  background: linear-gradient(135deg, #d62828, #f47721);
+  border-radius: 3px;
+  background-color: #e63946;
   color: white;
-  border: none;
-  padding: 7px 14px;
-  box-shadow: 2px 2px #b83220;
+  border: 1px solid #c92a35;
+  box-shadow: 2px 2px #b94a35;
   cursor: pointer;
-  transition: 0.2s ease;
 }
 
 button:hover {
-  background: linear-gradient(135deg, #b91f1f, #e85d15);
-  transform: translateY(-2px);
+  background-color: #ff7b36;
 }
 
 button:active {
   box-shadow: none;
-  transform: translateY(0);
 }
 
 li {
   margin-bottom: 5px;
-  color: #51433e;
 }
 
 footer {
   margin-top: 50px;
   padding-top: 25px;
-  border-top: 1px solid #f0b9a5;
-  color: #8a5a4a;
+  border-top: 1px solid #f4a28c;
 }
