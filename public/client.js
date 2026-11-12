@@ -59,7 +59,7 @@ function displayData() {
 
     
     // Extracts the information from database to list
-    if ${row["x"]} > 4 {
+   if (Number(row["x"]) > 4) {
     newListItem.innerHTML = `${row["x"]}: Gender: ${row["Gender"]}, Weight: ${row["Weight"]}, Height: ${row["Height"]} ,  Protein = ${protein}`;
     rowList.appendChild(newListItem);
     }
