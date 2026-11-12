@@ -36,7 +36,7 @@ listener.address().port);
 
 // Create the database object
 const sqlite3 = require('sqlite3').verbose();
-let db = new sqlite3.Database('alt1OW_Omri.db.sql');
+let db = new sqlite3.Database('alt1OW_Omri.db');
 
 
 // Process the HTTP POST request for /putData
